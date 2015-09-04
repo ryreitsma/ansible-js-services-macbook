@@ -5,6 +5,8 @@
   - kdiff3
 - name: Set kdiff3 as git mergetool
   command: "git config --global merge.tool kdiff3"
+- name: Set current as default push strategy
+  command: "git config --global push.default current"
 - name: Add a .netrc file to the home directory
   template: src=netrc dest=/Users/{{ mac_login }}/.netrc
 - name: Set git aliases

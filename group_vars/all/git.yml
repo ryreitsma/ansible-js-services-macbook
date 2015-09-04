@@ -1,0 +1,10 @@
+github_login: 
+github_access_token:
+git_aliases:
+- { alias: 'co', command: 'checkout' }
+- { alias: 'st', command: 'status' }
+- { alias: 'br', command: 'branch' }
+- { alias: 'ci', command: 'commit' }
+- { alias: 'unstage', command: 'reset HEAD --' }
+- { alias: 'last', command: 'log -1 HEAD' }
+- { alias: 'cb', command: 'checkout -b' }

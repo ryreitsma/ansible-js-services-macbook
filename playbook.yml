@@ -1,0 +1,6 @@
+
+- hosts: mac 
+  connection: local
+  roles:
+  - common
+  - software/oracleclient

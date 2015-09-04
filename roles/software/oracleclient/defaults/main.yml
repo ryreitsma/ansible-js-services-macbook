@@ -1,0 +1,2 @@
+oracle_home: /Users/{{ mac_login }}/Oracle
+oracle_instantclient_home: "{{ oracle_home }}/instantclient"

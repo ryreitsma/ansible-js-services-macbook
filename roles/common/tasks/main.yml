@@ -1,0 +1,20 @@
+---
+- name: Update and upgrade homebrew
+  homebrew: update_homebrew=yes upgrade_all=yes
+- name: Use homebrew tap to tap?
+  homebrew_tap: tap={{ item }} state=present
+  with_items:
+  - caskroom/cask
+  - caskroom/versions
+  - homebrew/versions
+  - homebrew/binary
+- name: Install list of brew packages
+  homebrew: name={{ item }} state=present
+  with_items: "{{ homebrew_packages }}"
+- name: Install list of brew cask packages
+  homebrew_cask: name={{ item }} state=present
+  with_items: "{{ homebrew_cask_packages }}"
+- name: Install atom packages
+  command: "apm install {{ item }}"
+  with_items: "{{ atom_packages }}"
+- include: git.yml

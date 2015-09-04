@@ -1,0 +1,30 @@
+- name: Create directory for oracle instantclient
+  file: path={{ oracle_instantclient_home }} state=directory recurse=yes owner={{ mac_login }}
+- name: Copy the tnsnames file
+  copy: src=tnsnames.ora dest={{ oracle_instantclient_home }}
+- name: Copy the instantclient archive
+  copy: src=instantclient.gz dest="{{ oracle_home }}/instantclient.gz"
+- name: Unarchive the instantclient directory
+  command: "tar -xvzf {{ oracle_home }}/instantclient.gz -C {{ oracle_home }}"
+  args:
+    creates: "{{ oracle_instantclient_home }}/libclntsh.dylib.11.1"
+- name: Create a symlink for base .so file
+  file: src={{ oracle_instantclient_home }}/libclntsh.dylib.11.1 dest={{ oracle_instantclient_home }}/libclntsh.dylib state=link
+- name: Make sure bash_profile exists
+  file: path="/Users/{{ mac_login }}/.bash_profile" owner={{ mac_login }} state=touch
+- name: Add DYLD_LIBRARY_PATH variable
+  lineinfile:
+    dest: "/Users/{{ mac_login }}/.bash_profile"
+    line: "export DYLD_LIBRARY_PATH={{ oracle_instantclient_home }}:$DYLD_LIBRARY_PATH"
+- name: Add environment variables
+  lineinfile:
+    dest: "/Users/{{ mac_login }}/.bash_profile"
+    line: "export OCI_LIB_DIR={{ oracle_instantclient_home }}"
+- name: Add environment variables
+  lineinfile:
+    dest: "/Users/{{ mac_login }}/.bash_profile"
+    line: "export OCI_INC_DIR={{ oracle_instantclient_home }}/sdk/include"
+- name: Add environment variables
+  lineinfile:
+    dest: "/Users/{{ mac_login }}/.bash_profile"
+    line: "export TNS_ADMIN={{ oracle_instantclient_home }}"

@@ -1,7 +1,7 @@
 - name: Create directory for oracle instantclient
   file: path={{ oracle_instantclient_home }} state=directory recurse=yes owner={{ mac_login }}
-- name: Copy the tnsnames file
-  copy: src=tnsnames.ora dest={{ oracle_instantclient_home }}
+#- name: Copy the tnsnames file
+#  copy: src=tnsnames.ora dest={{ oracle_instantclient_home }}
 - name: Copy the instantclient archive
   copy: src=instantclient.gz dest="{{ oracle_home }}/instantclient.gz"
 - name: Unarchive the instantclient directory

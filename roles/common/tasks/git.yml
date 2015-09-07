@@ -12,3 +12,33 @@
 - name: Set git aliases
   command: 'git config --global alias.{{ item.alias }} "{{ item. command }}"'
   with_items: git_aliases
+- name: Create a Projects directory
+  file: path="/Users/{{ mac_login }}/Projects" state=directory owner={{ mac_login }}
+- name: Clone repositories from your own git
+  git: repo="git@github.com:{{ github_login }}/{{ item }}.git" dest="/Users/{{ mac_login }}/Projects/{{ item }}" update=no
+  with_items: "{{ git_repositories }}"
+  when: git_clone_repositories
+- name: Add Coolblue upstream to repositories
+  command: "git remote add upstream git@github.com:coolblue/{{ item }}.git"
+  args:
+    chdir: "/Users/{{ mac_login }}/Projects/{{ item }}"
+  with_items: "{{ git_repositories }}"
+  ignore_errors: true
+- name: Install git completion scripts
+  copy: src="{{ item }}" dest="/Users/{{ mac_login }}/.{{ item }}"
+  with_items:
+  - git-completion.bash
+  - git-prompt.sh
+- name: Make sure bash_profile exists
+  file: path="/Users/{{ mac_login }}/.bash_profile" owner={{ mac_login }} state=file
+- name: Add stuff to bash_profile to enable it to run
+  lineinfile:
+    dest: "/Users/{{ mac_login }}/.bash_profile"
+    line: "source ~/.{{ item }}"
+  with_items:
+  - git-completion.bash
+  - git-prompt.sh
+- name: Redefine your PS1 in bash_profile
+  lineinfile:
+    dest: "/Users/{{ mac_login }}/.bash_profile"
+    line: 'PS1="[\u@\h \W$(__git_ps1 \" (%s)\")]\$ "'

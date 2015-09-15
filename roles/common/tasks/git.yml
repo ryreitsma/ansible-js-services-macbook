@@ -19,7 +19,7 @@
   with_items: "{{ git_repositories }}"
   when: git_clone_repositories
 - name: Add Coolblue upstream to repositories
-  command: "git remote add upstream git@github.com:coolblue/{{ item }}.git"
+  command: "git remote add upstream git@github.com:coolblue-development/{{ item }}.git"
   args:
     chdir: "/Users/{{ mac_login }}/Projects/{{ item }}"
   with_items: "{{ git_repositories }}"

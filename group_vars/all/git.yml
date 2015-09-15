@@ -10,10 +10,4 @@ git_aliases:
 - { alias: 'cb', command: 'checkout -b' }
 git_clone_repositories: true
 git_repositories:
-- js-coolblue-entity-translator
-- js-coolblue-catalog-service
-- js-coolblue-catalog-distributor
-- js-coolblue-elliott
-- js-coolblue-api-service
 - puppet-coolblue-e-commerce-platform
-- puppet-office-automation

@@ -1,6 +1,9 @@
 # Installation
 There are a few manual steps to take to install your MacBook. Do them before you run the Ansible playbook. First make sure you have enabled encryption of your filesystem! This is mandatory. After that, do the following steps:
 
+### Create a SSH key and add it to your Github account
+To be able to clone repositories, you need to have an SSH key installed on the MacBook which has been added to your Github account. See https://help.github.com/articles/generating-ssh-keys/ on how to do this.
+
 ### Create a personal access token for your Github account
 You need the token to be able to install private Coolblue npm modules. See https://help.github.com/articles/creating-an-access-token-for-command-line-use/ on how to create the personal access token.
 

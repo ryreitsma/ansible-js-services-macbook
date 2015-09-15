@@ -38,7 +38,13 @@
   with_items:
   - git-completion.bash
   - git-prompt.sh
-- name: Redefine your PS1 in bash_profile
+- name: Add stuff in bash_profile to enable git prompt and git completion to work
   lineinfile:
     dest: "/Users/{{ mac_login }}/.bash_profile"
-    line: 'PS1="[\u@\h \W$(__git_ps1 \" (%s)\")]\$ "'
+    line: "{{ item }}"
+  with_items:
+  - 'export PS1="[\u@\h \W$(__git_ps1 \" (%s)\")]\$ "'
+  - 'export GIT_PS1_SHOWCOLORHINTS=true'
+  - 'export GIT_PS1_SHOWDIRTYSTATE=true'
+  - 'export GIT_PS1_SHOWSTASHSTATE=true'
+  - 'export GIT_PS1_SHOWUNTRACKEDFILES=true'

@@ -21,6 +21,7 @@ Last, but not least, check ```group_vars/all/main.yml``` and fill in your MacBoo
 Run the install.sh script to install homebrew and Ansible. You need both to run this Ansible playbook.
 
 ## Run the playbook
+Some of the install steps in the playbook.yml file are optional. If you don't want to install atom, just comment out or  remove the role for software/atom.
 ```
 ansible-playbook playbook.yml -i hosts
 ```

@@ -8,6 +8,5 @@ git_aliases:
 - { alias: 'unstage', command: 'reset HEAD --' }
 - { alias: 'last', command: 'log -1 HEAD' }
 - { alias: 'cb', command: 'checkout -b' }
-git_clone_repositories: true
-git_repositories:
+forked_coolblue_repositories:
 - puppet-coolblue-e-commerce-platform

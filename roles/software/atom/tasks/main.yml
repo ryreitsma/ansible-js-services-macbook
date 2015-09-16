@@ -1,0 +1,5 @@
+- name: Install atom
+  homebrew_cask: name=atom state=present
+- name: Install atom packages
+  command: "apm install {{ item }}"
+  with_items: "{{ atom_packages }}"

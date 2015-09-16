@@ -1,6 +1,7 @@
 
-- hosts: mac 
+- hosts: mac
   connection: local
   roles:
   - common
   - software/oracleclient
+  - software/atom

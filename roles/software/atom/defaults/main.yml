@@ -1,0 +1,5 @@
+atom_packages:
+- linter
+- language-ansible
+- autocomplete
+- autocomplete-modules

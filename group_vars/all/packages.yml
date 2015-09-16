@@ -9,7 +9,6 @@ homebrew_cask_packages:
 - google-hangouts
 - virtualbox
 - dropbox
-- atom
 - libreoffice
 - vagrant
 - java

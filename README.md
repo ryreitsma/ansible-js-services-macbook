@@ -18,7 +18,7 @@ Run it and agree to the terms and services, otherwise the installation of brew m
 *"msg: Agreeing to the Xcode/iOS license requires admin privileges, please re-run as root via sudo."*
 
 ### Edit the list of packages and fill in variables
-The variables file ```group_vars/all/packages.yml``` contains all the packages that are going to be installed. Edit this list to your liking before running the script. Add the Github token and your Github login to ```group_vars/all/github.yml```. This is also where you can specify which repositories the script should clone and add to your MacBook. NOTE: you can only install repositories you've already forked from coolblue-development!
+There are a few files which contain variables you need to edit to allow the install to run succesfully. Also, you can edit to install the things you need. The file ```group_vars/all/packages.yml``` contains all the packages that are going to be installed. Edit this list to your liking before running the script. Add the Github token and your Github login to ```group_vars/all/github.yml```. This is also where you can specify which repositories the script should clone and add to your MacBook. NOTE: you can only install repositories you've already forked from coolblue-development!
 
 Last, but not least, check ```group_vars/all/main.yml``` and fill in your MacBook login / username.
 

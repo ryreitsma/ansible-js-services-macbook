@@ -7,6 +7,11 @@ To be able to clone repositories, you need to have an SSH key installed on the M
 ### Create a personal access token for your Github account
 You need the token to be able to install private Coolblue npm modules. See https://help.github.com/articles/creating-an-access-token-for-command-line-use/ on how to create the personal access token.
 
+### Clone this repository
+Validate that your ssh key is working by cloning this repository with ssh:
+
+```git clone git@github.com:ryreitsma/ansible-js-services-macbook.git```
+
 ### Install XCode
 This cannot be done automatically. You need to go to the Appstore (you can find the Appstore in the bottombar of the Macbook), download and install XCode.
 Run it and agree to the terms and services, otherwise the installation of brew modules will fail with the error:

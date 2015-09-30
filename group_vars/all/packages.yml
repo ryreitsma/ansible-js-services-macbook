@@ -3,7 +3,7 @@ homebrew_packages:
 - jq
 - vim
 - docker
-- node
+- node010
 homebrew_cask_packages:
 - google-chrome
 - google-hangouts
@@ -12,7 +12,9 @@ homebrew_cask_packages:
 - libreoffice
 - vagrant
 - java
+- docker-compose
 - docker-machine
+- paw
 atom_packages:
 - linter
 - linter-puppet

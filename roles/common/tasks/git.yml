@@ -29,7 +29,7 @@
   - git-completion.bash
   - git-prompt.sh
 - name: Make sure bash_profile exists
-  file: path="/Users/{{ mac_login }}/.bash_profile" owner={{ mac_login }} state=file
+  file: path="/Users/{{ mac_login }}/.bash_profile" owner={{ mac_login }} state=touch
 - name: Add stuff to bash_profile to enable it to run
   lineinfile:
     dest: "/Users/{{ mac_login }}/.bash_profile"

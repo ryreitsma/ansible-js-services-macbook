@@ -8,7 +8,7 @@ To be able to clone repositories, you need to have an SSH key installed on the M
 You need the token to be able to install private Coolblue npm modules. See https://help.github.com/articles/creating-an-access-token-for-command-line-use/ on how to create the personal access token.
 
 ### Install XCode
-This cannot be done automatically. You need to go to the Appstore, download and install XCode.
+This cannot be done automatically. You need to go to the Appstore (you can find the Appstore in the bottombar of the Macbook), download and install XCode.
 Run it and agree to the terms and services, otherwise the installation of brew modules will fail with the error:
 *"msg: Agreeing to the Xcode/iOS license requires admin privileges, please re-run as root via sudo."*
 

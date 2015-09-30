@@ -26,3 +26,9 @@ Some of the install steps in the playbook.yml file are optional. If you don't wa
 ansible-playbook playbook.yml -i hosts
 ```
 If you have additional steps to add or want to change some setup, a pull request is always welcome!
+
+#### FAQ
+
+* How can I use Oracle sqldeveloper on my Macbook?
+
+Download it from here http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html. Double click to run it. Then click on 'Oracle SQL Developer' in the top bar, select Preferences -> Database -> Advanced. You will see a Tnsnames Directory input box. Enter /Users/{{ your Macbook login / username }}/Oracle/instantclient, that is where the tnsnames.ora file was added. From now on, if you want to connect to an Oracle database, you can use the TNS option to get the correct connection properties. 

@@ -1,0 +1,11 @@
+- name: Install go
+  homebrew: name=go state=present
+- name: Create directory for go libraries
+  file: path="/Users/{{ mac_login }}/.go" state=directory owner={{ mac_login }}
+- name: Set environment variable for go libraries
+  lineinfile:
+    dest: "/Users/{{ mac_login }}/.bash_profile"
+    line: "{{ item }}"
+  with_items:
+  - "export GOPATH=/Users/{{ mac_login }}/.go"
+  - "export PATH=$PATH:$GOPATH/bin"

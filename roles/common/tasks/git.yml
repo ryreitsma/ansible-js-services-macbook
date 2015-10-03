@@ -42,8 +42,8 @@
     dest: "/Users/{{ mac_login }}/.bash_profile"
     line: "{{ item }}"
   with_items:
-  - 'export PS1="[\u@\h \W$(__git_ps1 \" (%s)\")]\$ "'
-  - 'export GIT_PS1_SHOWCOLORHINTS=true'
-  - 'export GIT_PS1_SHOWDIRTYSTATE=true'
-  - 'export GIT_PS1_SHOWSTASHSTATE=true'
-  - 'export GIT_PS1_SHOWUNTRACKEDFILES=true'
+  - "export PS1='[\\u@\\h \\W$(__git_ps1 \" (%s)\")]\\$ '"
+  - "export GIT_PS1_SHOWCOLORHINTS=true"
+  - "export GIT_PS1_SHOWDIRTYSTATE=true"
+  - "export GIT_PS1_SHOWSTASHSTATE=true"
+  - "export GIT_PS1_SHOWUNTRACKEDFILES=true"

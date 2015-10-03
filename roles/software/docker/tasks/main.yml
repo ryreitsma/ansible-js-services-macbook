@@ -1,0 +1,20 @@
+- name: Install docker
+  homebrew: name=docker state=present
+- name: Install docker utilities
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+  - docker-compose
+  - docker-machine
+- name: Create docker-machine vm
+  command: "docker-machine create --driver virtualbox {{ docker_vm_name }}"
+  args:
+    creates: "/Users/{{ mac_login }}/.docker/machine/machines/{{ docker_vm_name }}"
+- name: Add stuff in bash_profile to enable docker-machine
+  lineinfile:
+    dest: "/Users/{{ mac_login }}/.bash_profile"
+    line: "{{ item }}"
+  with_items:
+  - "export DOCKER_TLS_VERIFY=\"1\""
+  - "export DOCKER_HOST=\"tcp://192.168.99.100:2376\""
+  - "export DOCKER_CERT_PATH=\"/Users/{{ mac_login }}/.docker/machine/machines/{{ docker_vm_name }}\""
+  - "export DOCKER_MACHINE_NAME=\"{{ docker_vm_name }}\""

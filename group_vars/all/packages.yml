@@ -1,7 +1,6 @@
 homebrew_packages:
 - brew-cask
 - jq
-- docker
 - node010
 homebrew_cask_packages:
 - google-chrome
@@ -11,8 +10,6 @@ homebrew_cask_packages:
 - libreoffice
 - vagrant
 - java
-- docker-compose
-- docker-machine
 - paw
 atom_packages:
 - linter

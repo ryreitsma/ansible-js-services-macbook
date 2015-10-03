@@ -1,0 +1,19 @@
+- name: Clone docker-squash git repository
+  git: repo="git@github.com:jwilder/docker-squash.git" dest="/Users/{{ mac_login }}/Projects/docker-squash" update=no
+- name: Install gnu tar
+  homebrew: name=gnu-tar state=present
+- name: Set environment variable for gnu-tar and docker-squash
+  lineinfile:
+    dest: "/Users/{{ mac_login }}/.bash_profile"
+    line: "export PATH=/usr/local/opt/gnu-tar/libexec/gnubin:/Users/{{ mac_login }}/Projects/docker-squash:$PATH"
+- name: Install docker units package
+  command: go get github.com/docker/docker/pkg/units
+  environment:
+    GOPATH: "/Users/{{ mac_login }}/.go"
+- name: Build the docker-squash library
+  command: make
+  args:
+    chdir: "/Users/{{ mac_login }}/Projects/docker-squash"
+  environment:
+    GOPATH: "/Users/{{ mac_login }}/.go"
+    GOBIN: "/Users/{{ mac_login }}/Projects/docker-squash"

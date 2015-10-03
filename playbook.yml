@@ -3,7 +3,7 @@
   connection: local
   roles:
   - common
-  - software/oracleclient
+  - software/oracle_client
   - software/atom
   - software/docker
   - software/go

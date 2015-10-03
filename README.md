@@ -36,4 +36,8 @@ If you have additional steps to add or want to change some setup, a pull request
 
 * How can I use Oracle sqldeveloper on my Macbook?
 
-Download it from here http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html. Double click to run it. Then click on 'Oracle SQL Developer' in the top bar, select Preferences -> Database -> Advanced. You will see a Tnsnames Directory input box. Enter /Users/{{ your Macbook login / username }}/Oracle/instantclient, that is where the tnsnames.ora file was added. From now on, if you want to connect to an Oracle database, you can use the TNS option to get the correct connection properties. 
+Download it from here http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html. Double click to run it. Then click on 'Oracle SQL Developer' in the top bar, select Preferences -> Database -> Advanced. You will see a Tnsnames Directory input box. Enter /Users/{{ your Macbook login / username }}/Oracle/instantclient, that is where the tnsnames.ora file was added. From now on, if you want to connect to an Oracle database, you can use the TNS option to get the correct connection properties.
+
+* I get a lot of errors when running the 'Add Coolblue upstream to repositories' task
+
+If you see 'stderr: fatal: remote upstream already exists....ignoring' then don't worry, it just indicates that the upstream already exists. This is a known bug. 

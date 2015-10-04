@@ -1,7 +1,5 @@
 homebrew_packages:
 - brew-cask
-- jq
-- node010
 homebrew_cask_packages:
 - google-chrome
 - google-hangouts

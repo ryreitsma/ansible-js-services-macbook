@@ -1,0 +1,14 @@
+- name: Install brew packages for node services development
+  homebrew: name={{ item }} state=present
+  with_items:
+  - node010
+  - jq
+- name: Clone Coolblue repositories from your own github
+  git: repo="git@github.com:{{ github_login }}/{{ item }}.git" dest="/Users/{{ mac_login }}/Projects/{{ item }}" update=no
+  with_items: "{{ forked_node_services_repositories }}"
+- name: Add Coolblue upstream to repositories
+  command: "git remote add upstream git@github.com:coolblue-development/{{ item }}.git"
+  args:
+    chdir: "/Users/{{ mac_login }}/Projects/{{ item }}"
+  with_items: "{{ forked_node_services_repositories }}"
+  ignore_errors: true

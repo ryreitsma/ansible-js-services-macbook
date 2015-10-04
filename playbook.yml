@@ -3,6 +3,7 @@
   connection: local
   roles:
   - common
+  - nodejs_services
   - software/oracle_client
   - software/atom
   - software/docker

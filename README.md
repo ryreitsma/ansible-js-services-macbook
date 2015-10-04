@@ -1,6 +1,7 @@
 # Why should I use this script to install my Macbook?
 
-I created this script because I don't like repetitive tasks, especially if they can be easily automated. Also, I tend to forget things, so if I needed to reinstall, I would get stuck on simple configuration steps. This is why I created this script. Anyone in Coolblue can now use this script to do the most common setup steps. You'll see that installing a Macbook still requires some manual steps, just follow this readme and you can get going rather quickly. 
+I created this script because I don't like repetitive tasks, especially if they can be easily automated. Also, I tend to forget things. If I needed to reinstall, I would get stuck on simple configuration steps, having to Google a lot and asking questions to my colleagues. 
+This is why I created this script. Anyone in Coolblue can now use this script to do the most common setup steps. You'll see that installing a Macbook still requires some manual steps, just follow this readme and you can get going rather quickly. 
 
 Having trouble installing? Missing some setup or configuration? Please let me know via Hangouts, a Github issue or walk by my team's room. I will be glad to help out. 
 

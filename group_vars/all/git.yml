@@ -13,5 +13,5 @@ forked_nodejs_services_repositories:
 - js-coolblue-catalog-distributor
 - js-coolblue-entity-translator
 - js-coolblue-elliott
-- js-coolblue-api-services
+- js-coolblue-api-service
 - puppet-office-automation

@@ -15,6 +15,6 @@
     line: "{{ item }}"
   with_items:
   - "export DOCKER_TLS_VERIFY=\"1\""
-  - "export DOCKER_HOST=\"tcp://192.168.99.100:2376\""
+  - "export DOCKER_HOST=\"tcp://{{ docker_vm_ip_address }}:2376\""
   - "export DOCKER_CERT_PATH=\"/Users/{{ mac_login }}/.docker/machine/machines/{{ docker_vm_name }}\""
   - "export DOCKER_MACHINE_NAME=\"{{ docker_vm_name }}\""

@@ -1,1 +1,2 @@
 docker_vm_name: docker-machine-vm
+docker_vm_ip_address: 192.168.99.100

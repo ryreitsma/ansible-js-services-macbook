@@ -2,7 +2,7 @@
 
 I created this script because I don't like repetitive tasks, especially if they can be easily automated. Also, I tend to forget things, so if I needed to reinstall, I would get stuck on simple configuration steps. This is why I created this script. Anyone in Coolblue can now use this script to do the most common setup steps. You'll see that installing a Macbook still requires some manual steps, just follow this readme and you can get going rather quickly. 
 
-Having trouble installing? Missing some setup or configuration? Please let me know via Hangouts, a Github issue or walk by my team's room. I'd be glad to help out. 
+Having trouble installing? Missing some setup or configuration? Please let me know via Hangouts, a Github issue or walk by my team's room. I will be glad to help out. 
 
 # Installation
 There are a few manual steps to take to install your MacBook. Do them before you run the Ansible playbook. First make sure you have enabled encryption of your filesystem! This is mandatory. After that, do the following steps:
@@ -23,26 +23,38 @@ This cannot be done automatically. You need to go to the Appstore (you can find 
 Run it and agree to the terms and services, otherwise the installation of brew modules will fail with the error:
 *"msg: Agreeing to the Xcode/iOS license requires admin privileges, please re-run as root via sudo."*
 
-### Edit the list of packages and fill in variables
-There are a few files which contain variables you need to edit to allow the install to run succesfully. Also, you can edit to install the things you need. The file ```group_vars/all/packages.yml``` contains all the packages that are going to be installed. Edit this list to your liking before running the script. Add the Github token and your Github login to ```group_vars/all/github.yml```. This is also where you can specify which repositories the script should clone and add to your MacBook. NOTE: you can only install repositories you've already forked from coolblue-development!
+## Customizing the installation
+Every developer wants to use different software. You prefer sublime over atom? Firefox over Chrome? I've attempted to make the installation highly configurable with some sensible defaults (which by no coincedence reflect my own preferences). There are two ways to customize the install: 
+- choose roles in ``playbook.yml``
+- edit configuration variable files in ``group_vars/all``
 
-Last, but not least, check ```group_vars/all/main.yml``` and fill in your MacBook login / username.
+### Choose roles in playbook
+The file ``playbook.yml`` contains the roles which define which configuration will be installed. You'll probably want to comment out php_web if you are a NodeJS developer, or vice versa if you are a PHP developer. You don't want to install the oracle_client? Just comment out that line with a hashtag.
+
+### Edit configuration in variable files
+The file ``group_vars/all/packages.yml`` contains the homebrew and homebrew-cask packages (e.g. formulas) that are going to be installed. Edit this list to your liking before running the script. You can find brew formulas here: http://brewformulas.org/ and brew-cask formulas are listed here: http://caskroom.io/search
+
+Check ``group_vars/all/personal.yml`` and fill in your MacBook login / username, Github token and your Github login.
+
+### Cloning Git repositories
+This script can clone all your Coolblue git repositories for you. They are divided in several lists, see ``group_vars/all/github.yml`` for the complete list. You can only install repositories you've already forked from coolblue-development, so check the lists and remove those you don't want. Of course you can also add repositories to the lists.
+The nodejs_services repositories will only be installed the nodejs_services role is enabled in playbook.yml. The same goes for the php_web repositories, those will also only be installed if the php_web role is enabled.
+
+## Run the installation
 
 ### Install homebrew and Ansible with install.sh
-Run the install.sh script to install homebrew and Ansible. You need both to run this Ansible playbook.
+Run ``./install.sh`` to install homebrew and Ansible. You need both to run this Ansible playbook.
 
-## Run the playbook
-Some of the install steps in the playbook.yml file are optional. If you don't want to install atom, just comment out or  remove the role for software/atom.
-```
-ansible-playbook playbook.yml -i hosts
-```
+### Run the playbook
+Run ``ansible-playbook playbook.yml -i hosts``
+
 If you have additional steps to add or want to change some setup, a pull request is always welcome!
 
 #### FAQ
 
 * How can I use Oracle sqldeveloper on my Macbook?
 
-Download it from here http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html. Double click to run it. Then click on 'Oracle SQL Developer' in the top bar, select Preferences -> Database -> Advanced. You will see a Tnsnames Directory input box. Enter /Users/{{ your Macbook login / username }}/Oracle/instantclient, that is where the tnsnames.ora file was added. From now on, if you want to connect to an Oracle database, you can use the TNS option to get the correct connection properties.
+Download it from here http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html. Double click to run it. Then click on 'Oracle SQL Developer' in the top bar, select Preferences -> Database -> Advanced. You will see a Tnsnames Directory input box. Enter /Users/{{ your Macbook login / username }}/Oracle/instantclient, that is where the tnsnames.ora file was added. From now on, if you want to connect to an Oracle database, you can use the TNS option to get the correct connection properties. I did not include it in this script because it is more than 400MB and does not support an unauthenticated download.
 
 * I get a lot of errors when running the 'Add Coolblue upstream to repositories' task
 

@@ -15,3 +15,5 @@ forked_nodejs_services_repositories:
 - js-coolblue-elliott
 - js-coolblue-api-service
 - puppet-office-automation
+forked_php_web_repositories:
+- php-skunkworks

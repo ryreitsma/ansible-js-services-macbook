@@ -4,6 +4,7 @@
   roles:
   - common
   - nodejs_services
+  - php_web
   - software/oracle_client
   - software/atom
   - software/docker

@@ -8,7 +8,7 @@ git_aliases:
 - { alias: 'cb', command: 'checkout -b' }
 forked_coolblue_repositories:
 - puppet-coolblue-e-commerce-platform
-forked_node_services_repositories:
+forked_nodejs_services_repositories:
 - js-coolblue-catalog-service
 - js-coolblue-catalog-distributor
 - js-coolblue-entity-translator

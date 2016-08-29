@@ -1,7 +1,10 @@
-- name: Install kdiff3 and git
+- name: Install git
   homebrew: name={{ item }} state=present
   with_items:
   - git
+- name: Install kdiff3
+  homebrew_cask: name={{ item }} state=present
+  with_items:
   - kdiff3
 - name: Set kdiff3 as git mergetool
   command: "git config --global merge.tool kdiff3"

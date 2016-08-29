@@ -1,5 +1,4 @@
 homebrew_packages:
-- brew-cask
 - openconnect
 homebrew_cask_packages:
 - google-chrome

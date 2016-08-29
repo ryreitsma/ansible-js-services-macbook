@@ -2,7 +2,7 @@
   homebrew: name={{ item }} state=present
   with_items:
   - node
-  - composer
+  - homebrew/php/php71
 - name: Clone Coolblue repositories from your own github
   git: repo="git@github.com:{{ github_login }}/{{ item }}.git" dest="/Users/{{ mac_login }}/Projects/{{ item }}" update=no
   with_items: "{{ forked_php_web_repositories }}"

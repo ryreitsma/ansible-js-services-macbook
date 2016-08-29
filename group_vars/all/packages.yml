@@ -6,7 +6,6 @@ homebrew_cask_packages:
 - virtualbox
 - dropbox
 - libreoffice
-- vagrant
 - java
 - paw
 atom_packages:
